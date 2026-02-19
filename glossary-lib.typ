@@ -15,7 +15,7 @@
 
 // Print an index of all the acronyms and their definitions.
 #let print-glossary(language, glossary-spacing) = {
-  heading(level: 1, outlined: false, numbering: none)[#GLOSSARY.at(language)]
+  // heading is rendered by the caller (lib.typ) so it appears in the ToC
 
   context {
     let glossary = glossary-state.get()

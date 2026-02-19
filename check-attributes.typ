@@ -37,6 +37,8 @@
   math-numbering,
   ignored-link-label-keys-for-highlighting,
   page-numbering,
+  ai-disclosure,
+  ai-tools,
 ) = {
   if (title == none or title == "") {
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
@@ -56,6 +58,7 @@
     show-list-of-tables: show-list-of-tables,
     show-code-snippets: show-code-snippets,
     show-abstract: show-abstract,
+    ai-disclosure: ai-disclosure,
   )
 
   for (key, attribute) in boolean-attributes {
@@ -259,6 +262,17 @@
     } else if (attribute.len() > 0) {
       if (type(attribute.at(0)) != str) {
         panic("Attribute '" + key + "' is invalid. Specify an array of strings in the '" + key + "' attribute of the template.")
+      }
+    }
+  }
+
+  if (ai-tools != none) {
+    if (type(ai-tools) != array) {
+      panic("Attribute 'ai-tools' is invalid. Specify an array of dictionaries, each with a 'tool' and a 'description' key.")
+    }
+    for entry in ai-tools {
+      if (type(entry) != dictionary or "tool" not in entry or "description" not in entry) {
+        panic("Each entry in 'ai-tools' must be a dictionary with a 'tool' and a 'description' key.")
       }
     }
   }

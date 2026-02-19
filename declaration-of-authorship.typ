@@ -10,6 +10,7 @@
   at-university,
   city,
   date-format,
+  ai-disclosure,
 ) = {
   v(2em)
   text(size: 20pt, weight: "bold", DECLARATION_OF_AUTHORSHIP_TITLE.at(language))
@@ -18,19 +19,12 @@
   if (declaration-of-authorship-content != none) {
     declaration-of-authorship-content
   } else {
-    if (authors.len() == 1) {
-      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
+    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
+    if (ai-disclosure) {
       v(1em)
-      align(center, text(weight: "bold", title))
-      v(1em)
-      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
-    } else {
-      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
-      v(1em)
-      align(center, text(weight: "bold", title))
-      v(1em)
-      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
+      par(justify: true, AI_DECLARATION_ADDITION.at(language))
     }
+    v(1em)
   }
 
   let end-date = if (type(date) == datetime) {

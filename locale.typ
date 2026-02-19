@@ -38,7 +38,7 @@
   "en": "Declaration of Authorship",
 )
 
-#let DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE = "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:"
+#let DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE = "Ich versichere hiermit, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen als die angegebenen Quellen und  Hilfsmittel verwendet habe und diese Arbeit bei keiner anderen Prüfung mit gleichem oder vergleichbarem Inhalt vorgelegt habe und diese bislang nicht veröffentlich wurde. Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt."
 
 #let DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL = "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Wir versichern hiermit, dass wir unsere Arbeit mit dem Thema:"
 
@@ -140,4 +140,24 @@ The content of this thesis may not be made available, either in its entirety or 
 #let APPENDIX = (
   "de": "Anhang",
   "en": "Appendix",
+)
+
+#let AI_ACKNOWLEDGEMENT_TITLE = (
+  "de": "Anmerkung zur Nutzung von Künstlicher Intelligenz",
+  "en": "AI Acknowledgement",
+)
+
+#let AI_ACKNOWLEDGEMENT_TOOL_COLUMN = (
+  "de": "Werkzeug",
+  "en": "Tool",
+)
+
+#let AI_ACKNOWLEDGEMENT_DESCRIPTION_COLUMN = (
+  "de": "Beschreibung der Nutzung",
+  "en": "Description of Usage",
+)
+
+#let AI_DECLARATION_ADDITION = (
+  "de": "Ich habe bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies habe ich an den entsprechenden Stellen der Arbeit kenntlich gemacht.",
+  "en": "I have used AI tools in the creation of this work. I have indicated this at the relevant places in the work.",
 )

@@ -1,10 +1,11 @@
 #import "@preview/codelst:2.0.2": *
 #import "acronym-lib.typ": acr, acrf, acrfpl, acrl, acrlpl, acrpl, acrs, acrspl, init-acronyms, print-acronyms
 #import "glossary-lib.typ": gls, init-glossary, print-glossary
-#import "locale.typ": APPENDIX, CODE_SNIPPETS, LIST_OF_FIGURES, LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS
+#import "locale.typ": APPENDIX, ACRONYMS, CODE_SNIPPETS, GLOSSARY, LIST_OF_FIGURES, LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS, AI_ACKNOWLEDGEMENT_TITLE
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
+#import "ai-acknowledgement.typ": *
 #import "check-attributes.typ": *
 
 // Workaround for the lack of an `std` scope.
@@ -82,6 +83,8 @@
   logo-right: none,
   logo-size-ratio: "1:1",
   ignored-link-label-keys-for-highlighting: (),
+  ai-disclosure: false,
+  ai-tools: none,
   body,
 ) = {
   // check required attributes
@@ -124,6 +127,8 @@
     math-numbering,
     ignored-link-label-keys-for-highlighting,
     page-numbering,
+    ai-disclosure,
+    ai-tools,
   )
 
   // set the document's basic properties
@@ -366,6 +371,7 @@
       at-university,
       city,
       date-format,
+      ai-disclosure,
     )
   }
 
@@ -393,15 +399,15 @@
     )
   }
 
-  heading(level: 1, numbering: none, outlined: true)[Abbildungsverzeichnis]
   counter(page).update(3)
   context {
     let elems = query(figure.where(kind: image))
     let count = elems.len()
 
     if (show-list-of-figures and count > 0) {
+      heading(level: 1, numbering: none, outlined: true)[#LIST_OF_FIGURES.at(language)]
       outline(
-        title: LIST_OF_FIGURES.at(language),
+        title: none,
         target: figure.where(kind: image),
       )
     }
@@ -413,34 +419,36 @@
     let count = elems.len()
 
     if (show-list-of-tables and count > 0) {
+      heading(level: 1, numbering: none, outlined: true)[#LIST_OF_TABLES.at(language)]
       outline(
-        title: LIST_OF_TABLES.at(language),
+        title: none,
         target: figure.where(kind: table),
       )
     }
   }
-  heading(level: 1, numbering: none, outlined: true)[Codeverzeichnis]
   counter(page).update(4)
   context {
     let elems = query(figure.where(kind: raw))
     let count = elems.len()
 
     if (show-code-snippets and count > 0) {
+      heading(level: 1, numbering: none, outlined: true)[#CODE_SNIPPETS.at(language)]
       outline(
-        title: CODE_SNIPPETS.at(language),
+        title: none,
         target: figure.where(kind: raw),
         depth: 1,
       )
     }
   }
 
-  heading(level: 1, numbering: none, outlined: true)[Abkürzungsverzeichnis]
   counter(page).update(5)
   if (show-acronyms and acronyms != none and acronyms.len() > 0) {
+    heading(level: 1, numbering: none, outlined: true)[#ACRONYMS.at(language)]
     print-acronyms(language, acronym-spacing)
   }
 
   if (glossary != none and glossary.len() > 0) {
+    heading(level: 1, numbering: none, outlined: true)[#GLOSSARY.at(language)]
     print-glossary(language, glossary-spacing)
   }
 
@@ -531,6 +539,10 @@
   if (appendix != none) {
     heading(level: 1, numbering: none)[#APPENDIX.at(language)]
     appendix
+  }
+
+  if (ai-tools != none and ai-tools.len() > 0) {
+    ai-acknowledgement(ai-tools, language)
   }
 
   [#metadata(none)<numbering-appendix-end>]

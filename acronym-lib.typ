@@ -99,7 +99,7 @@
 }
 
 #let print-acronyms(language, acronym-spacing) = {
-  heading(level: 1, outlined: false, numbering: none)[#ACRONYMS.at(language)]
+  // heading is rendered by the caller (lib.typ) so it appears in the ToC
 
   context {
     let acronyms = acros.get()

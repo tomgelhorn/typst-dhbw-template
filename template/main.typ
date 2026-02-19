@@ -1,7 +1,7 @@
-#import "@preview/supercharged-dhbw:3.4.1": *
+
 #import "acronyms.typ": acronyms
 #import "glossary.typ": glossary
-
+#import "../lib.typ": *
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
   authors: (
@@ -22,6 +22,16 @@
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   university-short: "DHBW",
+  // AI disclosure (Kap. 4.4): set to true when AI tools were used – adds the
+  // mandatory sentence to the declaration of authorship.
+  ai-disclosure: false,
+  // AI acknowledgement table (Kap. 4.6): list each AI tool that was used.
+  // Remove the comment markers and fill in your tools; omit the parameter or
+  // set it to `none` to skip the section entirely.
+  // ai-tools: (
+  //   (tool: "ChatGPT",          description: [Recherche und Verständnis von Grundbegriffen (Kapitel 2)]),
+  //   (tool: "GitHub Copilot",   description: [Formulierungshilfe und Korrekturen (gesamt)]),
+  // ),
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 

@@ -1,0 +1,21 @@
+# Compiled Typst output
+*.pdf
+
+# Typst cache
+.typst/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+
+# DHBW guidelines (copyrighted – do not redistribute)
+guidelines/*.pdf
