@@ -13,8 +13,7 @@
 #let text_abs = "XYZ"
 
 #show: supercharged-dhbw.with(
-  title: "Entwicklung eines Gesundheitstrackers zur Überwachung und Verarbeitung von
-Vitalwerten",
+  title: "Entwicklung eines Gesundheitstrackers zur Überwachung und Verarbeitung von Vitalwerten",
   authors: (
     (
       name: "Max Mustermann",

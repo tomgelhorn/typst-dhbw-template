@@ -19,7 +19,20 @@
   if (declaration-of-authorship-content != none) {
     declaration-of-authorship-content
   } else {
-    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
+    if (authors.len() == 1) {
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
+      v(1em)
+      align(center, text(weight: "bold", title))
+      v(1em)
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
+    } else {
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
+      v(1em)
+      align(center, text(weight: "bold", title))
+      v(1em)
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
+    }
+
     if (ai-disclosure) {
       v(1em)
       par(justify: true, AI_DECLARATION_ADDITION.at(language))
