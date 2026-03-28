@@ -122,6 +122,11 @@ The content of this thesis may not be made available, either in its entirety or 
   "en": "Code Snippets",
 )
 
+#let CODE_SUPPLEMENT = (
+  "de": "Quellcode",
+  "en": "Code",
+)
+
 #let ACRONYMS = (
   "de": "Abkürzungsverzeichnis",
   "en": "List of Acronyms",

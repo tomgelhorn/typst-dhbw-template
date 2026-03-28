@@ -1,7 +1,7 @@
 #import "@preview/codelst:2.0.2": *
 #import "acronym-lib.typ": acr, acrf, acrfpl, acrl, acrlpl, acrpl, acrs, acrspl, init-acronyms, print-acronyms
 #import "glossary-lib.typ": gls, init-glossary, print-glossary
-#import "locale.typ": APPENDIX, ACRONYMS, CODE_SNIPPETS, GLOSSARY, LIST_OF_FIGURES, LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS, AI_ACKNOWLEDGEMENT_TITLE
+#import "locale.typ": APPENDIX, ACRONYMS, CODE_SNIPPETS, CODE_SUPPLEMENT, GLOSSARY, LIST_OF_FIGURES, LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS, AI_ACKNOWLEDGEMENT_TITLE
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
@@ -152,6 +152,9 @@
 
   // customize look of figure
   set figure.caption(separator: [ --- ], position: bottom)
+  
+  // change default "Listing" supplement to "Quellcode" for code figures
+  show figure.where(kind: raw): set figure(supplement: CODE_SUPPLEMENT.at(language))
 
   // set body font family
   set text(font: body-font, lang: language, 12pt)
