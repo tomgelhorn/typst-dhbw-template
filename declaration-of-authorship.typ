@@ -11,6 +11,7 @@
   city,
   date-format,
   ai-disclosure,
+  signature: none,
 ) = {
   v(2em)
   text(size: 20pt, weight: "bold", DECLARATION_OF_AUTHORSHIP_TITLE.at(language))
@@ -61,14 +62,26 @@
       columns: (1fr, 1fr),
       gutter: 20pt,
       ..authors.map(author => {
-        v(3.5em)
+        if signature != none {
+          v(0.5em)
+          signature
+          v(0.5em)
+        } else {
+          v(3.5em)
+        }
         line(length: 80%)
         author.name
       })
     )
   } else {
     for author in authors {
-      v(4em)
+      if signature != none {
+        v(0.5em)
+        signature
+        v(0.5em)
+      } else {
+        v(4em)
+      }
       line(length: 40%)
       author.name
     }
