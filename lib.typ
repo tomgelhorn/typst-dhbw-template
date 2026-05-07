@@ -392,10 +392,15 @@
   set par(justify: true, leading: 1em)
 
   if (show-abstract and abstract != none) {
-    align(center + top, heading(level: 1, numbering: none, outlined: false)[Kurzfassung])
-    text(kurzfassung)
-    align(center + top, heading(level: 2, numbering: none, outlined: false)[Abstract])
-    text(abstract)
+    if (language == "de") {
+      align(center + top, heading(level: 1, numbering: none, outlined: false)[Kurzfassung])
+      text(kurzfassung)
+      align(center + top, heading(level: 2, numbering: none, outlined: false)[Abstract])
+      text(abstract)
+    } else {
+      align(center + top, heading(level: 1, numbering: none, outlined: false)[Abstract])
+      text(abstract)
+    }
   }
 
   set par(leading: 0.65em)
