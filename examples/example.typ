@@ -29,7 +29,7 @@
   at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("example-sources.bib"),
   date: (datetime(year: 2025, month: 6, day: 2), datetime(year: 2025, month: 9, day: 8)),
-  glossary: none, // displays the glossary terms defined in the glossary dictionary
+  glossary: glossary, // displays the glossary terms defined in the glossary dictionary
   language: "de", // en, de
   supervisor: (company: "M.Sc. Erika Muster", university: "Prof. Dr. Max Beispiel"),
   university: "Dualen Hochschule Baden-Württemberg",
@@ -41,6 +41,19 @@
   abstract: text_abs,
   kurzfassung: text_kurz,
   type-of-thesis: "Studienarbeit",
+  formula-table: table(
+    columns: (2fr, 2fr, 5fr),
+    align: (left, center, left),
+    stroke: none,
+    table.header([Formelgröße], [Einheit], [Beschreibung]),
+    [], [], [],
+    [$f$], [Hz], [Frequenz],
+    [$t$], [s], [Zeit],
+    [$U$], [V], [Elektrische Spannung],
+    [$I$], [A], [Elektrischer Strom],
+    [$R$], [Ω], [Widerstand],
+    [$P$], [W], [Elektrische Leistung],
+  ),
   // KI-Nutzung (Kap. 4.4 + 4.6): ai-disclosure fügt den Pflichtssatz zur
   // Selbstständigkeitserklärung hinzu; ai-tools erzeugt die Tabelle am Ende.
   ai-disclosure: true,
@@ -63,9 +76,7 @@
       table(
         columns: (auto, 1fr, 1fr, 1fr, 1fr),
         align: (left, center, center, center, center),
-        table.header(
-          [*Zeitstempel*], [*HR (bpm)*], [*SpO₂ (%)*], [*Temp. (°C)*], [*Bewertung*],
-        ),
+        table.header([*Zeitstempel*], [*HR (bpm)*], [*SpO₂ (%)*], [*Temp. (°C)*], [*Bewertung*]),
         [08:00], [72], [98], [36.7], [normal],
         [08:15], [75], [97], [36.8], [normal],
         [08:30], [68], [99], [36.6], [normal],
@@ -82,18 +93,18 @@
 
     #figure(
       sourcecode[```json
-{
-  "sensor": {
-    "sampling_rate_hz": 1,
-    "hr_range": [40, 200],
-    "spo2_range": [80, 100],
-    "temp_range": [35.0, 42.0]
-  },
-  "transmission": {
-    "protocol": "BLE",
-    "interval_ms": 500
-  }
-}
+      {
+        "sensor": {
+          "sampling_rate_hz": 1,
+          "hr_range": [40, 200],
+          "spo2_range": [80, 100],
+          "temp_range": [35.0, 42.0]
+        },
+        "transmission": {
+          "protocol": "BLE",
+          "interval_ms": 500
+        }
+      }
       ```],
       caption: [Konfigurationsdatei des Gesundheitstrackers],
       supplement: "Quellcode",
@@ -131,7 +142,7 @@ Das DHBW-Logo ist in @abb-dhbw-logo dargestellt. @tab-messreihe zeigt eine exemp
 ) <tab-messreihe>
 
 == Verwendung von Formiergasen in Zuverlässigkeitstests<reliability>
-Die Messung der Wafer erfolgt mit sehr feinen Nadeln. Diese Nadeln sind Teil eines sogenannten Waferprobers ($"CuO"$), der für die Kontaktierung und Messung auf Wafern eingesetzt wird. Die Nadeln werden auf die Oberfläche des Wafers gesetzt und können dabei die Passivierungsschicht des Wafers beschädigen 
+Die Messung der Wafer erfolgt mit sehr feinen Nadeln. Diese Nadeln sind Teil eines sogenannten Waferprobers ($"CuO"$), der für die Kontaktierung und Messung auf Wafern eingesetzt wird. Die Nadeln werden auf die Oberfläche des Wafers gesetzt und können dabei die Passivierungsschicht des Wafers beschädigen
 #colbreak()
 Eine Beschädigung der Passivierungsschicht #acr("HTTP") oder #acrpl("API") durch eine Nadel ist beispielhaft in dargestellt. Diese Aufnahmen sind ein Ergebnis der Forschung von Y. Liu et al. und dienen hier der Veranschaulichung der Problematik.
 

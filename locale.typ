@@ -166,3 +166,8 @@ The content of this thesis may not be made available, either in its entirety or 
   "de": "Ich habe bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies habe ich an den entsprechenden Stellen der Arbeit kenntlich gemacht.",
   "en": "I have used AI tools in the creation of this work. I have indicated this at the relevant places in the work.",
 )
+
+#let FORMULA_TABLE = (
+  "de": "Formelgrößen und Einheiten",
+  "en": "List of Symbols",
+)
