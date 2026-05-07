@@ -2,8 +2,8 @@
 #import "acronym-lib.typ": acr, acrf, acrfpl, acrl, acrlpl, acrpl, acrs, acrspl, init-acronyms, print-acronyms
 #import "glossary-lib.typ": gls, init-glossary, print-glossary
 #import "locale.typ": (
-  ACRONYMS, AI_ACKNOWLEDGEMENT_TITLE, APPENDIX, CODE_SNIPPETS, CODE_SUPPLEMENT, GLOSSARY, LIST_OF_FIGURES,
-  LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS,
+  ACRONYMS, AI_ACKNOWLEDGEMENT_TITLE, APPENDIX, CODE_SNIPPETS, CODE_SUPPLEMENT, FORMULA_TABLE, GLOSSARY,
+  LIST_OF_FIGURES, LIST_OF_TABLES, REFERENCES, TABLE_OF_CONTENTS,
 )
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
@@ -88,6 +88,7 @@
   ignored-link-label-keys-for-highlighting: (),
   ai-disclosure: false,
   ai-tools: none,
+  formula-table: none,
   signature: none,
   body,
 ) = {
@@ -460,21 +461,10 @@
     print-glossary(language, glossary-spacing)
   }
 
-  heading(level: 1, numbering: none, outlined: true)[Formelgrößen und Einheiten]
-  table(
-    columns: (2fr, 2fr, 5fr),
-    align: (left, center, left),
-    stroke: none,
-    table.header([Formelgröße], [Einheit], [Beschreibung]),
-    // entfernt die Randlinien
-    [], [], [],
-    [$b$], [°C], [Achsenabschnitt],
-    [$e$], [°C], [Messabweichung],
-    [$m$], [-], [Steigung],
-    [$T$], [°C], [Temperatur],
-    [$x$], [°C], [Messwert],
-    [$y$], [°C], [korrigierter Messwert],
-  )
+  if (formula-table != none) {
+    heading(level: 1, numbering: none, outlined: true)[#FORMULA_TABLE.at(language)]
+    formula-table
+  }
   [#metadata(none)<numbering-preface-end>]
 
   set par(leading: 1em, spacing: 2em)
